@@ -1,5 +1,5 @@
 # RETRY 행성 로또
-
+[최종 코딩테스트 Repository](https://github.com/bigcloud07/javascript-planetlotto-8/tree/bigcloud07)
 ## 아쉬웠거나 개선하고 싶은 점
 > 이렇게 적은 내용을 바탕으로 다시 행성 로또 문제를 해결해 보자.
 ### 문제 구현 관련
