@@ -1,5 +1,9 @@
+import controller from "./controller.js";
+
 class App {
-  async run() {}
+  async run() {
+    await controller();
+  }
 }
 
 export default App;
