@@ -4,3 +4,4 @@ export function validateUnitAmount(amount) {
         throw new Error('로또는 500원 단위로 구입할 수 있습니다.');
     }
 }
+
