@@ -85,6 +85,20 @@ const OutputView = {
   printErrorMessage(message) {
     MissionUtils.Console.print(`[ERROR] ${message}`);
   },
+
+  /**
+   * @param {number} message
+   */
+  printProfit(profit) {
+    MissionUtils.Console.print(`총 당첨금은 ${profit}원 입니다`);
+  },
+
+  /**
+   * @param {string} message
+   */
+  printProfitRate(profitRate) {
+    MissionUtils.Console.print(`총 수익률은 ${profitRate}% 입니다`);
+  },
 };
 
 export { InputView, OutputView };
