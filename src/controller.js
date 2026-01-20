@@ -1,3 +1,4 @@
+import { LottoResult } from "./model/LottoResult.js";
 import { LottoStore } from "./model/LottoStroe.js";
 import { inputErrorHandler } from "./utils/errorHandler.js";
 import { validateBonusNumberRange, validateDuplicatedNumber, validateUnitAmount, validateLottoNumbersRange, validateLottoNumberLength, validateDuplicatedBonusNumber } from "./utils/validator.js";
@@ -5,6 +6,7 @@ import { InputView, OutputView } from "./view.js";
 
 export default async function controller() {
     const lottoStore = new LottoStore();
+    const lottoResult = new LottoResult();
 
     const amount = await inputErrorHandler(async() => {
         const inputAmount = await InputView.askAmount();
@@ -28,5 +30,9 @@ export default async function controller() {
         const inputBounsNumber = await InputView.askBonusNumber();
         validateBonusNumberRange(inputBounsNumber);
         validateDuplicatedBonusNumber(winningLotto, inputBounsNumber);
+        return inputBounsNumber;
     }, OutputView)
+
+    const matchIndex = lottoResult.getMatchCount(issuedLottos, winningLotto, bonusNumber);
+    OutputView.printResult(matchIndex)
 }
