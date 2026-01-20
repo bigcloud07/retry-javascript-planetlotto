@@ -42,6 +42,14 @@ const InputView = {
     }
     return num;
   },
+
+  /**
+   * @returns {string}
+   */
+  async askFortuneMessage() {
+    const input = await MissionUtils.Console.readLineAsync('오늘의 운세를 확인하시겠습니까? [Y/N]\n');
+    return input;
+  },
 };
 
 const OutputView = {
@@ -51,7 +59,7 @@ const OutputView = {
   printPurchasedLottos(lottos) {
     const lines = [
       `${lottos.length}개를 구매했습니다.`,
-        ...lottos.map(lotto => `[${lotto.join(', ')}]`),
+      ...lottos.map(lotto => `[${lotto.join(', ')}]`),
     ];
     MissionUtils.Console.print(lines.join('\n'));
   },
@@ -98,6 +106,13 @@ const OutputView = {
    */
   printProfitRate(profitRate) {
     MissionUtils.Console.print(`총 수익률은 ${profitRate}% 입니다`);
+  },
+
+  /**
+   * @param {string} message
+   */
+  printFortuneMessage(message) {
+    MissionUtils.Console.print(message);
   },
 };
 

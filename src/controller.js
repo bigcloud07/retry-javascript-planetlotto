@@ -1,4 +1,5 @@
 import { INPUT_UNIT_AMOUNT } from "./constants/config.js";
+import fortune from "./model/Fortune.js";
 import { LottoResult } from "./model/LottoResult.js";
 import { LottoStore } from "./model/LottoStore.js";
 import { inputErrorHandler } from "./utils/errorHandler.js";
@@ -8,6 +9,10 @@ import { InputView, OutputView } from "./view.js";
 export default async function controller() {
     const lottoStore = new LottoStore();
     const lottoResult = new LottoResult();
+
+    const isFortuneMessage = await InputView.askFortuneMessage();
+    const fortuneMessage = fortune(isFortuneMessage);
+    OutputView.printFortuneMessage(fortuneMessage);
 
     const amount = await inputErrorHandler(async () => {
         const inputAmount = await InputView.askAmount();
