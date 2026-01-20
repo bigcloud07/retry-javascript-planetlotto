@@ -1,3 +1,4 @@
+import { INPUT_UNIT_AMOUNT } from "./constants/config.js";
 import { LottoResult } from "./model/LottoResult.js";
 import { LottoStore } from "./model/LottoStroe.js";
 import { inputErrorHandler } from "./utils/errorHandler.js";
@@ -14,7 +15,7 @@ export default async function controller() {
         return inputAmount;
     }, OutputView);
 
-    const lottoCount = amount / 500;
+    const lottoCount = amount / INPUT_UNIT_AMOUNT;
     const issuedLottos = lottoStore.generateLotto(lottoCount);
     OutputView.printPurchasedLottos(issuedLottos);
 

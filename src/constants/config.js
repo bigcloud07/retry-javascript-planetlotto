@@ -3,3 +3,5 @@ export const LottoStoreConfig = Object.freeze({
     END_NUMBER: 30,
     UNIQUE_NUMBER: 5
 })
+
+export const INPUT_UNIT_AMOUNT = 500;
