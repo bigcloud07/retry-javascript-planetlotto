@@ -42,3 +42,11 @@ export function validateDuplicatedBonusNumber(winningLotto, bonusNumber) {
         throw new Error(ERROR_MESSAGES.DUPLICATED_BONUS_NUMBER);
     }
 }
+
+export function validateFortuneInputValue(input){
+    const ALLOWED_VALUES = ['Y', 'N'];
+    const isValidInput = ALLOWED_VALUES.includes(input);
+    if(!isValidInput){
+        throw new Error(ERROR_MESSAGES.FORTUNE_INPUT_VALUE);
+    }
+}

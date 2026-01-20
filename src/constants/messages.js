@@ -5,6 +5,7 @@ export const ERROR_MESSAGES = Object.freeze({
     LOTTO_NUMBER_LENGTH: '로또 번호는 5개를 입력해 주셔야 합니다.',
     DUPLICATED_NUMBER: '로또 번호는 중복될 수 없습니다.',
     DUPLICATED_BONUS_NUMBER: '당첨 번호와 보너스 번호는 중복될 수 없습니다.',
+    FORTUNE_INPUT_VALUE: 'Y 또는 N을 입력해 주세요'
 })
 
 export const FORTUNE_MESSAGES = [
@@ -14,3 +15,5 @@ export const FORTUNE_MESSAGES = [
     '어제보다는 더 괜찮을지도 모르겠네요',
     '오늘은 투자하지 않는것을 권장합니다 ㅠㅠ'
 ];
+
+export const NO_FORTUNE_MESSAGE = '로또 발매를 진행하겠습니다.';

@@ -48,7 +48,8 @@ const InputView = {
    */
   async askFortuneMessage() {
     const input = await MissionUtils.Console.readLineAsync('오늘의 운세를 확인하시겠습니까? [Y/N]\n');
-    return input;
+    const isFortuneMessage = input.trim().toUpperCase();
+    return isFortuneMessage;
   },
 };
 

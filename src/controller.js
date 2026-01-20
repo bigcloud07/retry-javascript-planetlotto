@@ -3,16 +3,21 @@ import fortune from "./model/Fortune.js";
 import { LottoResult } from "./model/LottoResult.js";
 import { LottoStore } from "./model/LottoStore.js";
 import { inputErrorHandler } from "./utils/errorHandler.js";
-import { validateBonusNumberRange, validateDuplicatedNumber, validateUnitAmount, validateLottoNumbersRange, validateLottoNumberLength, validateDuplicatedBonusNumber } from "./utils/validator.js";
+import { validateBonusNumberRange, validateDuplicatedNumber, validateUnitAmount, validateLottoNumbersRange, validateLottoNumberLength, validateDuplicatedBonusNumber, validateFortuneInputValue } from "./utils/validator.js";
 import { InputView, OutputView } from "./view.js";
 
 export default async function controller() {
     const lottoStore = new LottoStore();
     const lottoResult = new LottoResult();
 
-    const isFortuneMessage = await InputView.askFortuneMessage();
-    const fortuneMessage = fortune(isFortuneMessage);
-    OutputView.printFortuneMessage(fortuneMessage);
+    const todayFortune = await inputErrorHandler(async () => {
+        const isFortuneMessage = await InputView.askFortuneMessage();
+        validateFortuneInputValue(isFortuneMessage);
+        const fortuneMessage = fortune(isFortuneMessage);
+        return fortuneMessage;
+    }, OutputView)
+
+    OutputView.printFortuneMessage(todayFortune);
 
     const amount = await inputErrorHandler(async () => {
         const inputAmount = await InputView.askAmount();
